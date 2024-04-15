@@ -5,15 +5,63 @@ Iniziate in modo graduale. Prima stampate in pagina i dati, senza preoccuparvi d
 */
 
 // sito dell'array
-$url = 'https://www.codepile.net/pile/OEWY7Q1G';
-$data = file_get_contents($url);
+/* $url = 'https://www.codepile.net/pile/OEWY7Q1G';
+$data = file_get_contents($url); */
 // trasforma i dati json in array php
-$hotels = json_decode($data, true);
+/* $hotels = json_decode($data, true);
 
-foreach($hotels as $hotelData){
-  foreach($hotelData as $hotel){
-    echo $hotel;
+exit (var_dump($data)); */
+
+$hotels = [
+
+  [
+      'name' => 'Hotel Belvedere',
+      'description' => 'Hotel Belvedere Descrizione',
+      'parking' => true,
+      'vote' => 4,
+      'distance_to_center' => 10.4
+  ],
+  [
+      'name' => 'Hotel Futuro',
+      'description' => 'Hotel Futuro Descrizione',
+      'parking' => true,
+      'vote' => 2,
+      'distance_to_center' => 2
+  ],
+  [
+      'name' => 'Hotel Rivamare',
+      'description' => 'Hotel Rivamare Descrizione',
+      'parking' => false,
+      'vote' => 1,
+      'distance_to_center' => 1
+  ],
+  [
+      'name' => 'Hotel Bellavista',
+      'description' => 'Hotel Bellavista Descrizione',
+      'parking' => false,
+      'vote' => 5,
+      'distance_to_center' => 5.5
+  ],
+  [
+      'name' => 'Hotel Milano',
+      'description' => 'Hotel Milano Descrizione',
+      'parking' => true,
+      'vote' => 2,
+      'distance_to_center' => 50
+  ],
+
+];
+
+foreach($hotels as $hotelArray){
+  foreach($hotelArray as $key => $hotel){
+    echo $hotelArray[$key] .'<br>';
   };
+}; 
+
+echo '<hr>';
+
+foreach($hotels as $key => $hotel){
+  echo "$key: {$hotel['name']} <br>";
 };
 
 ?>
